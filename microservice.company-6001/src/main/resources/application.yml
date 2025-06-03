@@ -1,0 +1,14 @@
+server:
+  servlet:
+    context-path: /mybosspin # 设置应用的上下文路径
+  port: 6001
+  tomcat:
+    uri-encoding: utf-8 # 设置URI编码为UTF-8，也就是支持中文路径
+    max-swallow-size: -1 # -1的意思是不限制，也就是上传的文件大小不限制
+
+spring:
+  profiles:
+    active: dev # 设置当前激活的配置文件为dev
+
+
+    
