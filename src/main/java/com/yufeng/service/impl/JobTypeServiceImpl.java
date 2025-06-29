@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-03
+ * @since 2025-06-16
  */
 @Service
 public class JobTypeServiceImpl extends ServiceImpl<JobTypeMapper, JobType> implements JobTypeService {

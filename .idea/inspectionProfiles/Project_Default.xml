@@ -13,7 +13,7 @@
     <inspection_tool class="AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidApacheBeanUtilsCopy" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidCallStaticSimpleDateFormat" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AlibabaAvoidComplexCondition" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidConcurrentCompetitionRandom" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidDoubleOrFloatEqualCompare" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -41,7 +41,7 @@
     <inspection_tool class="AlibabaExceptionClassShouldEndWithException" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaIbatisMethodQueryForList" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaLockShouldWithTryFinally" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AlibabaLowerCamelCaseVariableNaming" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AlibabaLowerCamelCaseVariableNaming" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="AlibabaMethodReturnWrapperType" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaMethodTooLong" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaPackageNaming" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -63,9 +63,13 @@
     <inspection_tool class="AlibabaUnsupportedExceptionWithModifyAsList" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaUseQuietReferenceNotation" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaUseRightCaseForDateFormat" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CommentedOutCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="minLines" value="5" />
+    </inspection_tool>
     <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="CreateTime" />
+      <option name="ADDITIONAL_TAGS" value="CreateTime,Description" />
     </inspection_tool>
     <inspection_tool class="MapOrSetKeyShouldOverrideHashCodeEquals" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SpringJavaAutowiredFieldsWarningInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>

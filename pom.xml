@@ -29,20 +29,41 @@
     <module>common</module>
     <module>model</module>
     <module>api</module>
-    <module>microservice.user-7001</module>
-    <module>microservice.company-6001</module>
+    <module>ms.user-7001</module>
+    <module>ms.company-6001</module>
+    <module>ms.gateway-8000</module>
+    <!--  授权服务  -->
+    <module>ms.auth-service-8111</module>
   </modules>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.3</version>
+    <version>2.6.11</version>
     <relativePath />
   </parent>
 
 
   <dependencyManagement>
     <dependencies>
+      <!-- 引入微服务 spring-cloud-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>2021.0.4</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- 引入微服务组件 spring-cloud-alibaba -->
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2021.0.1.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       <!-- mysql 驱动 -->
       <dependency>
         <groupId>mysql</groupId>

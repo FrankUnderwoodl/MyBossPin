@@ -17,7 +17,8 @@ public class Stu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
+    // @TableId(value = "id", type = IdType.AUTO) // ❌ 这是数据库自增策略
+    @TableId(value = "id", type = IdType.ASSIGN_ID)  // ✅ 这才是雪花算法
     private Integer id;
 
     private String name;
@@ -56,5 +57,13 @@ public class Stu implements Serializable {
         ", name=" + name +
         ", age=" + age +
         "}";
+    }
+
+    public Stu(Integer id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+    public Stu() {
     }
 }

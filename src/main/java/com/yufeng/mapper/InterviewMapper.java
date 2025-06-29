@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-03
+ * @since 2025-06-16
  */
 public interface InterviewMapper extends BaseMapper<Interview> {
 

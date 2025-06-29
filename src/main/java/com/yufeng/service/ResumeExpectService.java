@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-03
+ * @since 2025-06-16
  */
 public interface ResumeExpectService extends IService<ResumeExpect> {
 
