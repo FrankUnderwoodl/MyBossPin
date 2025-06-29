@@ -1,0 +1,15 @@
+server:
+#  servlet:
+#    context-path: /mybosspin
+  port: 8000
+#  tomcat:
+#    uri-encoding: utf-8
+#    max-swallow-size: -1
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+#  webflux:
+#    base-path: /mybosspin  # 使用WebFlux专用配置

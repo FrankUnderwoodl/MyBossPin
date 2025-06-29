@@ -1,0 +1,13 @@
+server:
+#  servlet:
+#    context-path: /mybosspin
+  port: 6001
+  tomcat:
+    uri-encoding: utf-8
+    max-swallow-size: -1
+
+spring:
+  application:
+    name: company-service
+  profiles:
+    active: dev
