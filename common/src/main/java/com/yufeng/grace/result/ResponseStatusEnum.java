@@ -1,7 +1,3 @@
-
-//	此资源由 58学课资源站 收集整理
-//	想要获取完整课件资料 请访问：58xueke.com
-//	百万资源 畅享学习
 package com.yufeng.grace.result;
 
 /**
@@ -32,6 +28,7 @@ public enum ResponseStatusEnum {
     FILE_UPLOAD_NULL_ERROR(510,false,"文件不能为空，请选择一个文件再上传！"),
     FILE_UPLOAD_FAILD(511,false,"文件上传失败！"),
     FILE_FORMATTER_FAILD(512,false,"文件图片格式不支持！"),
+
     FILE_MAX_SIZE_500KB_ERROR(5131,false,"仅支持500kb大小以下的文件上传！"),
     FILE_MAX_SIZE_2MB_ERROR(5132,false,"仅支持2MB大小以下的文件上传！"),
     FILE_MAX_SIZE_8MB_ERROR(5132,false,"体验版仅支持8MB以下的文件上传！"),
@@ -40,6 +37,7 @@ public enum ResponseStatusEnum {
     USER_STATUS_ERROR(515,false,"用户状态参数出错！"),
     USER_NOT_EXIST_ERROR(516,false,"用户不存在！"),
     USER_PARAMS_ERROR(517,false,"用户请求参数出错！"),
+    USER_REGISTER_ERROR(518,false,"用户注册失败，请重试！"),
 
     // 自定义系统级别异常 54x
     SYSTEM_INDEX_OUT_OF_BOUNDS(541, false, "系统错误，数组越界！"),
@@ -97,6 +95,9 @@ public enum ResponseStatusEnum {
     SYSTEM_ERROR_ZUUL(560, false, "请求系统过于繁忙，请稍后再试！"),
     SYSTEM_PARAMS_SETTINGS_ERROR(5611, false, "参数设置不规范！"),
     ZOOKEEPER_BAD_VERSION_ERROR(5612, false, "数据过时，请刷新页面重试！"),
+    SYSTEM_ERROR_BLACK_IP(5621, false, "请求过于频繁，请稍后重试！"),
+    SYSTEM_ERROR_NOT_BLANK(5599, false, "系统错误，参数不能为空！"),
+    SENTINEL_BLOCK_FLOW_LIMIT_ERROR(5801, false, "系统访问繁忙，请稍后再试！"),
 
     DATA_DICT_EXIST_ERROR(5631, false, "数据字典已存在，不可重复添加或修改！"),
     DATA_DICT_DELETE_ERROR(5632, false, "删除数据字典失败！"),

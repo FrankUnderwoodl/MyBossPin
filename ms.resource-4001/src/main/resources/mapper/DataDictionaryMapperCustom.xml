@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yufeng.mapper.DataDictionaryMapperCustom">
+
+
+    <resultMap id="getDataDictionaryList" type="com.yufeng.model.vo.DataDictionaryVO">
+
+        <id column="typeCode" property="typeCode" jdbcType="VARCHAR"/>
+
+        <!--
+        重要知识：对collections的理解：
+        · 遇到相同的主键(topId)就归为一组
+        · 把每行数据转成Industry对象装进集合里
+        -->
+        <collection property="dataDictionaryList" ofType="com.yufeng.model.pojo.DataDictionary">
+            <id column="id" property="id" jdbcType="VARCHAR"/>
+            <result column="type_code" property="typeCode" jdbcType="VARCHAR"/>
+            <result column="type_name" property="typeName" jdbcType="VARCHAR"/>
+            <result column="item_key" property="itemKey" jdbcType="VARCHAR"/>
+            <result column="item_value" property="itemValue" jdbcType="VARCHAR"/>
+            <result column="sort" property="sort" jdbcType="INTEGER"/>
+            <result column="icon" property="icon" jdbcType="VARCHAR"/>
+            <result column="enable" property="enable" jdbcType="TINYINT"/>
+        </collection>
+    </resultMap>
+
+    <select id="getDataDictionaryListByTypeCode" resultMap="getDataDictionaryList">
+        SELECT dd.type_code as typeCode, dd.*
+        FROM data_dictionary dd
+        ORDER BY type_code, sort, item_key;
+    </select>
+</mapper>

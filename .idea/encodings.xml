@@ -5,12 +5,20 @@
     <file url="file://$PROJECT_DIR$/api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservice.company-6001/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservice.company-6001/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservice.user-7001/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservice.user-7001/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.auth-8111/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.company-6001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.company-6001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.file-5001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.gateway-8000/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.resource-4001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.user-7001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.user-7001/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms.work-3001/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payment-center-9060/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prac.rabbit-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/prac.rabbit-producer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

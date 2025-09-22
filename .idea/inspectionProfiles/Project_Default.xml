@@ -13,7 +13,7 @@
     <inspection_tool class="AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidApacheBeanUtilsCopy" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidCallStaticSimpleDateFormat" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidCommentBehindStatement" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AlibabaAvoidComplexCondition" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidConcurrentCompetitionRandom" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaAvoidDoubleOrFloatEqualCompare" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -34,14 +34,14 @@
     <inspection_tool class="AlibabaCollectionInitShouldAssignCapacity" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaCommentsMustBeJavadocFormat" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaConcurrentExceptionWithModifyOriginSubList" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AlibabaConstantFieldShouldBeUpperCase" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AlibabaConstantFieldShouldBeUpperCase" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="AlibabaCountDownShouldInFinally" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaDontModifyInForeachCircle" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaEnumConstantsMustHaveComment" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaExceptionClassShouldEndWithException" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaIbatisMethodQueryForList" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaLockShouldWithTryFinally" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AlibabaLowerCamelCaseVariableNaming" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AlibabaLowerCamelCaseVariableNaming" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="AlibabaMethodReturnWrapperType" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaMethodTooLong" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaPackageNaming" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -63,9 +63,31 @@
     <inspection_tool class="AlibabaUnsupportedExceptionWithModifyAsList" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaUseQuietReferenceNotation" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AlibabaUseRightCaseForDateFormat" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="ADDITIONAL_TAGS" value="CreateTime" />
+    <inspection_tool class="CommentedOutCode" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <option name="minLines" value="5" />
     </inspection_tool>
+    <inspection_tool class="D" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="DanglingJavadoc" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="HttpUrlsUsage" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="IncorrectHttpHeaderInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="customHeaders">
+        <set>
+          <option value="headerUserToken" />
+          <option value="appUserId" />
+          <option value="appUserToken" />
+          <option value="imoocUserId" />
+          <option value="password" />
+        </set>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="JavadocBlankLines" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="JavadocDeclaration" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ADDITIONAL_TAGS" value="CreateTime,Description,describe,target,deep,Desc:,description:,Description:,date" />
+    </inspection_tool>
+    <inspection_tool class="JavadocLinkAsPlainText" enabled="true" level="INFORMATION" enabled_by_default="true" />
     <inspection_tool class="MapOrSetKeyShouldOverrideHashCodeEquals" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SpringJavaAutowiredFieldsWarningInspection" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="t" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>

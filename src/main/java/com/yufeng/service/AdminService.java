@@ -1,6 +1,6 @@
 package com.yufeng.service;
 
-import com.yufeng.pojo.Admin;
+import com.yufeng.pojo.ar.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-03
+ * @since 2025-07-14
  */
 public interface AdminService extends IService<Admin> {
 

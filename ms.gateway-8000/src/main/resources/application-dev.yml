@@ -1,0 +1,94 @@
+spring:
+  # 网关也需要用到redis服务，所以这里也需要配置redis的连接信息
+  redis:
+    host: localhost
+    port: 6379
+    password: 33321480
+    database: 0
+
+  # 将这个微服务注册到Nacos
+  cloud:
+    loadbalancer:
+      nacos:
+        enabled: true # 开启基于Nacos规则的负载均衡
+
+#客户端请求: http://localhost:8000/user/login
+    #         ↓
+    #      网关接收请求
+    #         ↓
+    #   匹配路由规则: /user/** → user-service
+    #         ↓
+    #   通过Nacos发现user-service的实例
+    #         ↓
+    #   负载均衡转发到具体实例
+    #         ↓
+    #   返回响应给客户端
+
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848 # Nacos注册中心的地址
+        namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+
+    sentinel:
+      transport:
+        dashboard: localhost:8080 # Sentinel控制台的地址
+
+    # 针对网关做的配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 默认为false，改为true后，就能实现动态路由(也就是可以通过nacos能根据微服务的名称来获得服务的地址)
+      # 这里的配置是针对网关的路由规则
+      routes:
+        # 企业微服务的路由规则
+        - id: company-route # 路由的ID(每一个路由都需要一个唯一的ID，可以自定义)
+          uri: lb://company-service # 负载均衡的服务名称(lb:load balancing)，这里的company-service是Nacos注册中心中注册的服务名称，你不可以乱写
+          predicates: # 断言规则(也就是什么样的请求才会被路由到这个company-service微服务)
+            - Path=/company/**,/tradeOrder/**
+          filters: # 过滤器
+        #            - StripPrefix=1 # 去掉前缀‘/company’,去掉之后，像http://localhost:8000/user/stu这样的请求就会报错，除非你直接就是访问http://localhost:8000/stu
+
+        # 用户微服务的路由规则
+        - id: user-route
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**,/admininfo/**,/userinfo/**
+
+        # 认证微服务的路由规则
+        - id: auth-route
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**,/passport/**,/saas/**,/admin/**
+
+        # 资源微服务的路由规则
+        - id: resource-route
+          uri: lb://resource-service
+          predicates:
+            - Path=/resource/**,/industry/**,/dataDict/**,/jobType/**,/sys/**
+
+        # 工作微服务的路由规则
+        - id: work-route
+          uri: lb://work-service
+          predicates:
+            - Path=/work/**,/resume/**,/job/**,/counts/**,/report/**
+
+        # 文件微服务的路由规则
+        - id: file-route
+          uri: lb://file-service
+          predicates:
+            - Path=/file/**,/static/**
+
+      # 全局跨域配置，也就是可以让前端的请求可以跨域访问后端的服务
+      globalcors:
+        cors-configurations:
+          '[/**]': # ← 检查路径：/saas/getQRToken 是否匹配 /**？✅
+            allowedOriginPatterns: '*' # 检查来源：http://localhost:9528 是否匹配 *？ ✅
+            #            allowedOrigins: '*' # 精确匹配所有的源
+            allowedMethods: '*' # 允许所有的请求方法
+            allowedHeaders: '*' # 允许所有的请求头
+            allowCredentials: true # 是否允许携带凭证(如cookie)
+
+
+
+
+

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-03
+ * @since 2025-06-16
  */
 public class JobType implements Serializable {
 

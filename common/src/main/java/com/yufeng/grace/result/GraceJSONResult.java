@@ -1,7 +1,3 @@
-
-//	此资源由 58学课资源站 收集整理
-//	想要获取完整课件资料 请访问：58xueke.com
-//	百万资源 畅享学习
 package com.yufeng.grace.result;
 
 import java.util.Map;
@@ -9,16 +5,12 @@ import java.util.Map;
 /**
  * 自定义响应数据类型枚举升级版本
  *
- * @Title: IMOOCJSONResult.java
- * @Package com.imooc.utils
- * @Description: 自定义响应数据结构
- * 				本类可提供给 H5/ios/安卓/公众号/小程序 使用
- * 				前端接受此类数据（json object)后，可自行根据业务去实现相关功能
- *
- * @Copyright: Copyright (c) 2020
- * @Company: www.imooc.com
- * @author 慕课网 - 风间影月
  * @version V2.0
+ * @Title: IMOOCJSONResult.java
+ * @Package com.yufeng.utils
+ * @Description: 自定义响应数据结构
+ * 本类可提供给 H5/ios/安卓/公众号/小程序 使用
+ * 前端接受此类数据（json object)后，可自行根据业务去实现相关功能
  */
 public class GraceJSONResult {
 
@@ -36,22 +28,28 @@ public class GraceJSONResult {
 
     /**
      * 成功返回，带有数据的，直接往OK方法丢data数据即可
-     * @param data
-     * @return
      */
     public static GraceJSONResult ok(Object data) {
         return new GraceJSONResult(data);
     }
+
     /**
      * 成功返回，不带有数据的，直接调用ok方法，data无须传入（其实就是null）
-     * @return
      */
     public static GraceJSONResult ok() {
         return new GraceJSONResult(ResponseStatusEnum.SUCCESS);
     }
+
+    /**
+     * 成功返回一个带有数据的对象，这里SpringMVC会把这个对象转换成JSON字符串返回给前端
+     */
     public GraceJSONResult(Object data) {
+
+        // 状态码，这里是成功状态码：200
         this.status = ResponseStatusEnum.SUCCESS.status();
+        // 响应消息，这里是成功消息：操作成功
         this.msg = ResponseStatusEnum.SUCCESS.msg();
+        // 是否成功，这里是成功状态：操作成功
         this.success = ResponseStatusEnum.SUCCESS.success();
         this.data = data;
     }
@@ -59,14 +57,22 @@ public class GraceJSONResult {
 
     /**
      * 错误返回，直接调用error方法即可，当然也可以在ResponseStatusEnum中自定义错误后再返回也都可以
+     *
      * @return
      */
     public static GraceJSONResult error() {
         return new GraceJSONResult(ResponseStatusEnum.FAILED);
     }
 
+
+    public static GraceJSONResult error(String msg) {
+        return new GraceJSONResult(msg);
+    }
+
+
     /**
      * 错误返回，map中包含了多条错误信息，可以用于表单验证，把错误统一的全部返回出去
+     *
      * @param map
      * @return
      */
@@ -76,6 +82,7 @@ public class GraceJSONResult {
 
     /**
      * 错误返回，直接返回错误的消息
+     *
      * @param msg
      * @return
      */
@@ -85,6 +92,7 @@ public class GraceJSONResult {
 
     /**
      * 错误返回，token异常，一些通用的可以在这里统一定义
+     *
      * @return
      */
     public static GraceJSONResult errorTicket() {
@@ -93,27 +101,37 @@ public class GraceJSONResult {
 
     /**
      * 自定义错误范围，需要传入一个自定义的枚举，可以到[ResponseStatusEnum.java[中自定义后再传入
+     *
      * @param responseStatus
      * @return
      */
     public static GraceJSONResult errorCustom(ResponseStatusEnum responseStatus) {
         return new GraceJSONResult(responseStatus);
     }
+
+
     public static GraceJSONResult exception(ResponseStatusEnum responseStatus) {
         return new GraceJSONResult(responseStatus);
     }
 
+    /**
+     * 构造方法，直接传入ResponseStatusEnum枚举，来创建一个GraceJSONResult对象
+     *
+     * @param responseStatus 响应状态枚举
+     */
     public GraceJSONResult(ResponseStatusEnum responseStatus) {
         this.status = responseStatus.status();
         this.msg = responseStatus.msg();
         this.success = responseStatus.success();
     }
+
     public GraceJSONResult(ResponseStatusEnum responseStatus, Object data) {
         this.status = responseStatus.status();
         this.msg = responseStatus.msg();
         this.success = responseStatus.success();
         this.data = data;
     }
+
     public GraceJSONResult(ResponseStatusEnum responseStatus, String msg) {
         this.status = responseStatus.status();
         this.msg = msg;

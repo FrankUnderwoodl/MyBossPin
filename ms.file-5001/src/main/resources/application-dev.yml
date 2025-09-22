@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848 # Nacos注册中心的地址
+        namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间，我不使用默认的命名空间，而是使用自定义的命名空间
+
+seata:
+  # Seata分布式事务的开关
+  enabled: true
+  tx-service-group: mybosspin_tx_group # Seata事务组的名称
+
+  # Seata的配置
+  service:
+    # Seata服务的配置
+    vgroup-mapping:  # 事务组名称与Seata服务组的映射关系
+      mybosspin_tx_group: SEATA_GROUP # 事务组名称与Seata服务组的映射关系
+    grouplist:  # Seata服务组的列表
+      SEATA_GROUP: localhost:8091 # Seata服务组的地址，通常是Seata TC（事务协调器）的地址
+
+  config:
+    nacos:
+      server-addr: localhost:8848
+      namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+      username: nacos
+      password: nacos
+  registry:
+    nacos:
+      server-addr: localhost:8848 # Nacos注册中心的地址
+      namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+      username: nacos
+      password: nacos
+
+
+# MinIO 配置
+minio:
+  endpoint: http://localhost:9000      # MinIO服务地址
+#  endpoint: http://192.168.110.9:9000      # MinIO服务地址
+  fileHost: http://localhost:9000      # 文件地址host
+  bucketName: mybosspin                # 存储桶bucket名称
+  accessKey: lzm                       # 用户名
+  secretKey: 33321480
+
+
+
+# OSS 配置
+oss:
+  endpoint: oss-cn-guangzhou.aliyuncs.com                       # OSS服务地址
+  fileHost: http://mybosspin.oss-cn-guangzhou.aliyuncs.com      # 文件地址host
+  bucketName: mybosspin                                         # 存储桶bucket名称
+  accessKeyId: LTAI5tCkDGsBNAvC1kXS79tA                         # 用户AccessKey
+  accessKeySecret: ic622UHSEYmEjNf6MKWrFjGi79LUSp               # 用户SecretKey
+
+
+
+zookeeper:
+  curator:
+    #    host: 192.168.1.121:2181,192.168.1.122:2181,192.168.1.123:2181   集群模式
+    host: localhost:2181                     # 单机模式
+    connectionTimeoutMs: 30000               # 连接超时时间，单位毫秒
+    sessionTimeoutMs: 3000                   # 会话超时时间，单位毫秒
+    sleepMsBetweenRetry: 2000                # 重试间隔时间，单位毫秒
+    maxRetries: 3                            # 最大重试次数
+    namespace: curator-mybosspin             # 命名空间，类似于MQ中的Virtual Host
+

@@ -1,0 +1,23 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+
+
+#${counts:3} 的含义：
+#counts - 要查找的属性名
+#3 - 默认值（如果找不到 counts 属性时使用）
+#Spring Boot 会按以下顺序查找 counts 属性：
+#环境变量（如 COUNTS=5）
+#系统属性（如 -Dcounts=5）
+#application.properties 或 application.yml 中的配置
+#外部配置文件
+#如果都找不到，使用默认值 3
+blackIP:
+  continueCounts: ${counts:3} # 连续多少次请求失败后，加入黑名单
+  timeInterval: ${interval:20} # 黑名单时间间隔，单位秒
+  limitTimes: ${times:30} # 限制的时间，单位秒

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yufeng.mapper.JobTypeMapperCustom">
+
+    <resultMap id="SecondAndThirdListMap" type="com.yufeng.model.vo.JobTypeSecondAndThirdVO">
+
+        <id column="second_level_id" property="secondLevelId" jdbcType="VARCHAR"/>
+        <result column="second_level_name" property="secondLevelName" jdbcType="VARCHAR"/>
+        <result column="second_level_sort" property="secondLevelSort" jdbcType="INTEGER"/>
+
+        <collection property="jobTypeThirdVOList" ofType="com.yufeng.model.vo.JobTypeThirdVO">
+            <id column="third_level_id" property="thirdLevelId" jdbcType="VARCHAR"/>
+            <result column="third_level_name" property="thirdLevelName" jdbcType="VARCHAR"/>
+            <result column="third_level_sort" property="thirdLevelSort" jdbcType="INTEGER"/>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="getThirdJobTypeByTop" parameterType="map" resultType="com.yufeng.model.pojo.JobType">
+        SELECT *
+        FROM job_type third
+        WHERE father_id in (SELECT `second`.id
+                            FROM job_type `second`
+                            WHERE father_id in (SELECT top.id
+                                                FROM job_type top
+                                                WHERE id = #{paramMap.topJobTypeId}))
+    </select>
+
+    <select id="getSecondAndThirdListByTop" parameterType="map" resultMap="SecondAndThirdListMap">
+        SELECT first_and_second.id     as second_level_id,
+               first_and_second.`name` as second_level_name,
+               first_and_second.sort   as second_level_sort,
+               `third`.id              as third_level_id,
+               `third`.`name`          as third_level_name,
+               `third`.sort            as third_level_sort
+        FROM (SELECT `second`.id     as id,
+                     `second`.`name` as `name`,
+                     `second`.sort   as sort
+              FROM job_type as `first`
+                       LEFT JOIN
+                   job_type as `second`
+                   ON
+                       `first`.id = `second`.father_id
+              WHERE `first`.id = #{paramMap.topJobTypeId}) as first_and_second
+                 LEFT JOIN
+             job_type as `third`
+             ON
+                 first_and_second.id = `third`.father_id
+        ORDER BY first_and_second.sort, third_level_sort
+            asc
+    </select>
+
+</mapper>

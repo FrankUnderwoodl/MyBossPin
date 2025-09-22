@@ -1,0 +1,15 @@
+#spring:
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: http://10.211.55.9:8848
+#        namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1
+#        file-extension: yaml # 这里虽然name有.yaml后缀，但不建议删除这个配置项
+#        # 扩展配置文件列表
+#        extension-configs:
+#          # JWT配置
+#          - data-id: jwt_config.yaml
+#            group: DEFAULT_GROUP
+#            refresh: true # 是否开启自动刷新，默认是false
+#          # 如果还有其他配置文件，继续添加...
+#

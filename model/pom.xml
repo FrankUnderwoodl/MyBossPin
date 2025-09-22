@@ -7,14 +7,32 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>pojo</artifactId>
+    <artifactId>model</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.yufeng</groupId>
             <artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <!-- 引入hibernate-validator依赖 -->
+        <!-- @NotNull：值不能为null
+        @Size：字符串、集合或数组的大小必须在指定范围内
+        @Email：字符串必须是有效的电子邮件地址
+        @Pattern：字符串必须匹配正则表达式 -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
