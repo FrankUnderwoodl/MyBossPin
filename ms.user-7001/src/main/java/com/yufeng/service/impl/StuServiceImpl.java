@@ -1,7 +1,7 @@
 package com.yufeng.service.impl;
 
 import com.yufeng.mapper.StuMapper;
-import com.yufeng.pojo.Stu;
+import com.yufeng.model.pojo.Stu;
 import com.yufeng.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

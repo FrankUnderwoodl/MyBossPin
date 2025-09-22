@@ -4,7 +4,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: http://10.211.55.9:8848
+        server-addr: http://localhost:8848
         namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1
         # 主配置文件
         group: DEFAULT_GROUP

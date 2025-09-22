@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yufeng.mapper.IndustryMapperCustom">
+
+
+    <!--  给你一个顶级节点的id，你给我查出所有的叶子节点  -->
+    <select id="getThirdIndustryByTop" parameterType="map" resultType="com.yufeng.model.pojo.Industry">
+
+        SELECT third.*
+        FROM industry third
+        WHERE third.father_id in (SELECT `second`.id
+                                  FROM industry `second`
+                                  WHERE `second`.father_id in (#{paramMap.topIndustryId}))
+    </select>
+
+
+    <!--给你一个叶子节点的id，你给我找到该叶子节点所对应的顶级节点的id-->
+    <select id="getTopIndustryId" parameterType="map" resultType="string">
+
+        SELECT top.id
+        FROM industry third
+                 RIGHT JOIN industry `second`
+                            ON `second`.id = third.father_id
+                 RIGHT JOIN industry top
+                            ON top.id = `second`.father_id
+        WHERE third.id = #{paramMap.thirdIndustryId}
+    </select>
+
+
+    <!--从MySQL查询到的记录后，将记录里面的字段全部映射到VO对象中 -->
+    <resultMap id="topIndustryWithThirdList" type="com.yufeng.model.vo.TopIndustryWithThirdListVO">
+
+        <id column="topId" property="topId" jdbcType="VARCHAR"/>
+
+        <!--
+        重要知识：对collections的理解：
+        · 遇到相同的主键(topId)就归为一组
+        · 把每行数据转成Industry对象装进集合里
+        -->
+        <collection property="thirdIndustryList" ofType="com.yufeng.model.pojo.Industry">
+            <id column="id" property="id" jdbcType="VARCHAR"/>
+            <result column="name" property="name" jdbcType="VARCHAR"/>
+            <result column="sort" property="sort" jdbcType="INTEGER"/>
+            <result column="father_id" property="fatherId" jdbcType="VARCHAR"/>
+            <result column="is_leaf" property="isLeaf" jdbcType="TINYINT"/>
+            <result column="level" property="level" jdbcType="INTEGER"/>
+        </collection>
+    </resultMap>
+
+    <!-- 查询到所有三级节点们所对应的顶级节点 -->
+    <select id="getAllThirdIndustryList" resultMap="topIndustryWithThirdList">
+        SELECT third.*, top.id as topId
+        from industry third
+                 LEFT JOIN industry `second`
+                           ON third.father_id = `second`.id
+                 LEFT JOIN industry top
+                           ON `second`.father_id = top.id
+        WHERE third.`level` = 3
+    </select>
+
+
+</mapper>

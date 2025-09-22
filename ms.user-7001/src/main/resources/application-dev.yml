@@ -2,7 +2,7 @@ spring:
   datasource:                                     # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource      # 数据源的类型，可以更改为其他的数据源配置，比如druid
     driver-class-name: com.mysql.cj.jdbc.Driver      # mysql/MariaDB 的数据库驱动类名称
-    url: jdbc:mysql://10.211.55.9:3306/mybosspin?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/mybosspin?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: 33321480
     hikari:
@@ -13,8 +13,60 @@ spring:
       idle-timeout: 600000                    # 连接超时的最大时长（毫秒），超时则会被释放（retired）
       pool-name: DataSourceHikariCP           # 连接池的名字
       max-lifetime: 18000000                  # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
-      connection-test-query: SELECT 1
+      connection-test-query: SELECT 1         # 连接测试查询语句，HikariCP会使用这个语句来验证连接是否有效
+
   cloud:
     nacos:
       discovery:
-        server-addr: http://10.211.55.9:8848 # Nacos注册中心的地址
+        server-addr: http://localhost:8848 # Nacos注册中心的地址
+        namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+    loadbalancer:
+      nacos:
+        enabled: true
+
+  redis:
+    host: localhost
+    port: 6379
+    password: 33321480
+    database: 0
+
+
+seata:
+  # Seata分布式事务的开关
+  enabled: true
+  tx-service-group: mybosspin_tx_group # Seata事务组的名称
+
+  # Seata的配置
+  service:
+    # Seata服务的配置
+    vgroup-mapping:  # 事务组名称与Seata服务组的映射关系
+      mybosspin_tx_group: SEATA_GROUP # 事务组名称与Seata服务组的映射关系
+    grouplist:  # Seata服务组的列表
+      SEATA_GROUP: localhost:8091 # Seata服务组的地址，通常是Seata TC（事务协调器）的地址
+
+  config:
+    nacos:
+      server-addr: localhost:8848
+      namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+      username: nacos
+      password: nacos
+  registry:
+    nacos:
+      server-addr: localhost:8848 # Nacos注册中心的地址
+      namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+      username: nacos
+      password: nacos
+
+
+
+
+zookeeper:
+  curator:
+    #    host: 192.168.1.121:2181,192.168.1.122:2181,192.168.1.123:2181   集群模式
+    host: localhost:2181                     # 单机模式
+    connectionTimeoutMs: 30000               # 连接超时时间，单位毫秒
+    sessionTimeoutMs: 3000                   # 会话超时时间，单位毫秒
+    sleepMsBetweenRetry: 2000                # 重试间隔时间，单位毫秒
+    maxRetries: 3                            # 最大重试次数
+    namespace: curator-mybosspin             # 命名空间，类似于MQ中的Virtual Host
+

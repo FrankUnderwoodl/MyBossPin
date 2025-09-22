@@ -1,7 +1,4 @@
 
-//	此资源由 58学课资源站 收集整理
-//	想要获取完整课件资料 请访问：58xueke.com
-//	百万资源 畅享学习
 package com.yufeng.utils;
 
 import java.time.DayOfWeek;
@@ -262,8 +259,10 @@ public class LocalDateUtils {
      * @param chronoUnit 日期时间单位
      * @return long 相隔日期时间
      */
-    public static long getChronoUnitBetween(LocalDateTime start, LocalDateTime end, ChronoUnit chronoUnit) {
-        return Math.abs(start.until(end, chronoUnit));
+    public static long getChronoUnitBetween(LocalDateTime start, LocalDateTime end, ChronoUnit chronoUnit, boolean needABS) {
+        long times = start.until(end, chronoUnit);
+//        return Math.abs(times);
+        return needABS ? Math.abs(times) : times;
     }
 
     /**
@@ -296,6 +295,32 @@ public class LocalDateUtils {
      */
     public static String getLastDayOfYearStr() {
         return getLastDayOfYearStr(LocalDateTime.now());
+    }
+
+    /**
+     * 获得明天的日期
+     * @return
+     */
+    public static LocalDate getTomorrow() {
+        return LocalDate.now().plusDays(1); //获取后一天日期
+    }
+
+    /**
+     * 获得昨天的日期
+     * @return
+     */
+    public static LocalDate getYesterday() {
+        return LocalDate.now().minusDays(1); //获取前一天日期
+    }
+
+    /**
+     * 根据时间单位来获得未来的日期时间
+     * @param times
+     * @param chronoUnit
+     * @return
+     */
+    public static LocalDateTime getFuture(LocalDateTime dateTime, long times, ChronoUnit chronoUnit) {
+        return dateTime.plus(times, chronoUnit);
     }
 
     /**
@@ -680,14 +705,27 @@ public class LocalDateUtils {
 
     public static void main(String[] args) {
         LocalDateTime nowTime = LocalDateTime.now();
-        System.out.println(getChronoUnitBetween(
-                nowTime,
-                parseLocalDateTime("2022-07-19 09:12:12", DATETIME_PATTERN),
-                ChronoUnit.MILLIS));
-        System.out.println(getChronoUnitBetween(
-                nowTime,
-                parseLocalDateTime("2022-07-19 09:12:12", DATETIME_PATTERN),
-                ChronoUnit.SECONDS));
+
+        System.out.println(getTomorrow().toString());
+        System.out.println(getYesterday().toString());
+        System.out.println(parseLocalDateTime(getTomorrow() + " 03:00:00", DATETIME_PATTERN));
+
+        // 计算凌晨3点到现在的时间
+        LocalDateTime futureTime = LocalDateUtils.parseLocalDateTime(
+                LocalDateUtils.getTomorrow() + " 03:00:00",
+                LocalDateUtils.DATETIME_PATTERN);
+        long publishTimes = LocalDateUtils.getChronoUnitBetween(LocalDateTime.now(), futureTime, ChronoUnit.MILLIS, true);
+
+        System.out.println(publishTimes);
+
+//        System.out.println(getChronoUnitBetween(
+//                nowTime,
+//                parseLocalDateTime("2022-07-19 09:12:12", DATETIME_PATTERN),
+//                ChronoUnit.MILLIS));
+//        System.out.println(getChronoUnitBetween(
+//                nowTime,
+//                parseLocalDateTime("2022-07-19 09:12:12", DATETIME_PATTERN),
+//                ChronoUnit.SECONDS));
 
 //        System.out.println(getChronoUnitBetween(
 //                                                LocalDate.now(),

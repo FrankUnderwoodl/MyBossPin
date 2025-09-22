@@ -1,0 +1,33 @@
+server:
+#  servlet:
+#    context-path: /mybosspin
+  port: 8111
+  tomcat:
+    uri-encoding: utf-8
+    max-swallow-size: -1
+
+spring:
+  application:
+    name: auth-service
+  profiles:
+    active: dev
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: assign_id
+      #      banner: false
+      update-strategy: not_empty
+  mapper-locations: classpath:/mapper/*.xml
+
+# 分页插件助手的配置
+pagehelper:
+  helper-dialect: MYSQL
+  support-methods-arguments: true
+
+# 日志级别
+logging:
+  level:
+    root: info

@@ -14,6 +14,7 @@
             <groupId>com.yufeng</groupId>
             <artifactId>pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
+
             <!-- 排除掉SpringMVC starter，这是因为： -->
             <!--  Spring Cloud Gateway是基于Spring WebFlux构建的响应式API网关，它使用Netty作为底层服务器。而Spring MVC是基于Servlet技术栈的。如果同时引入Spring MVC(spring-boot-starter-web)和Spring Cloud Gateway，会导致两个不同的Web环境冲突：
             · Spring MVC试图创建基于Servlet的环境
@@ -26,10 +27,21 @@
             </exclusions>
         </dependency>
 
-        <!-- 导入网关 -->
+        <!-- 导入网关依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
 
         <!-- macos M1/M2芯片 可能存在的不兼容 -->
@@ -42,12 +54,17 @@
 <!--            <version>4.1.59.Final</version>-->
 <!--        </dependency>-->
 
+        <!-- 导入Netty依赖 -->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-resolver-dns-native-macos</artifactId>
             <scope>runtime</scope>
             <classifier>osx-aarch_64</classifier>  <!-- ARM版本！ -->
             <version>4.1.72.Final</version>        <!-- 更新版本 -->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
     </dependencies>

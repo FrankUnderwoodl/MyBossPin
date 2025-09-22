@@ -3,7 +3,7 @@
 <mapper namespace="com.yufeng.mapper.StuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.yufeng.pojo.Stu">
+    <resultMap id="BaseResultMap" type="com.yufeng.model.pojo.Stu">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="age" property="age" />

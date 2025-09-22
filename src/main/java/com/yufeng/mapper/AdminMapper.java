@@ -1,6 +1,6 @@
 package com.yufeng.mapper;
 
-import com.yufeng.pojo.Admin;
+import com.yufeng.pojo.ar.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author Frank Underwood
- * @since 2025-06-16
+ * @since 2025-07-14
  */
 public interface AdminMapper extends BaseMapper<Admin> {
 

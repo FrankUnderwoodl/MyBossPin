@@ -47,7 +47,7 @@ public class SMSUtils {
 
             // 实例化一个请求对象,每个接口都会对应一个request对象
             SendSmsRequest req = new SendSmsRequest();
-            String[] phoneNumberSet1 = {"+86" + phone};//电话号码
+            String[] phoneNumberSet1 = {"+86" + phone};// 电话号码
             req.setPhoneNumberSet(phoneNumberSet1);
             req.setSmsSdkAppId("1400568450");   // 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId
             req.setSignName("风间影月");         // 签名

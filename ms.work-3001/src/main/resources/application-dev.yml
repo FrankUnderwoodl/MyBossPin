@@ -1,0 +1,108 @@
+spring:
+  datasource:                                     # 数据源的相关配置
+    type: com.zaxxer.hikari.HikariDataSource      # 数据源的类型，可以更改为其他的数据源配置，比如druid
+    driver-class-name: com.mysql.cj.jdbc.Driver      # mysql/MariaDB 的数据库驱动类名称
+    url: jdbc:mysql://localhost:3306/mybosspin?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 33321480
+    hikari:
+      connection-timeout: 30000               # 等待连接池分配连接的最大时间（毫秒），超过这个时长还没有可用的连接，则会抛出SQLException
+      minimum-idle: 5                         # 最小连接数
+      maximum-pool-size: 20                   # 最大连接数
+      auto-commit: true                       # 自动提交
+      idle-timeout: 600000                    # 连接超时的最大时长（毫秒），超时则会被释放（retired）
+      pool-name: DataSourceHikariCP           # 连接池的名字
+      max-lifetime: 18000000                  # 连接池的最大生命时长（毫秒），超时则会被释放（retired）
+      connection-test-query: SELECT 1
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848 # Nacos注册中心的地址
+        namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间，我不使用默认的命名空间，而是使用自定义的命名空间
+
+    sentinel:
+      transport:
+          dashboard: localhost:8080            # Sentinel控制台的地址
+          port: 8719                           # Sentinel客户端的端口
+      eager: true                              # 提前初始化并发送心跳
+
+
+  redis:
+    host: localhost
+    port: 6379
+    password: 33321480
+    database: 0
+
+  data:
+    mongodb:
+      uri: mongodb://admin:33321480@localhost:27017
+      database: mybosspin
+
+
+seata:
+  # Seata分布式事务的开关
+  enabled: true
+
+  # 全称：Transaction Service Group（事务服务组）
+  # 含义：
+  #  它是 Seata 中用来将多个服务实例逻辑分组的机制
+  #  同一个事务服务组内的服务可以参与同一个分布式事务
+  #  通过事务组名称，Seata 能够识别哪些服务属于同一个业务域或事务范围
+  # 作用：
+  #  服务发现：Seata TC（事务协调器）通过事务组名称找到对应的服务集群
+  #  事务隔离：不同事务组之间的事务相互隔离
+  #  资源管理：同一事务组内的资源（数据库连接等）可以被统一管理和协调
+  tx-service-group: mybosspin_tx_group # Seata事务组的名称
+
+  # Seata的配置
+  service:
+    # Seata服务的配置
+    vgroup-mapping:  # 事务组名称与Seata服务组的映射关系
+      mybosspin_tx_group: SEATA_GROUP # 事务组名称与Seata服务组的映射关系
+    grouplist:  # Seata服务组的列表
+      SEATA_GROUP: localhost:8091 # Seata服务组的地址，通常是Seata TC（事务协调器）的地址
+
+  config:
+    nacos:
+      server-addr: localhost:8848
+      namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+      username: nacos
+      password: nacos
+  registry:
+     nacos:
+         server-addr: localhost:8848 # Nacos注册中心的地址
+         namespace: decf67bc-7840-4ed9-a65b-6523ffc0fda1 # Nacos的命名空间
+         username: nacos
+         password: nacos
+
+
+canal:
+  destination: mybosspin # Canal的命名空间
+  server: localhost:11111 # Canal服务器的地址和端口
+  user-name: canal # Canal的用户名
+  password: canal # Canal的密码
+
+# logging可以配置日志的相关信息
+logging:
+  level:
+    top.javatool.canal.client: warn # Canal客户端的日志级别
+
+
+zookeeper:
+  curator:
+    #    host: 192.168.1.121:2181,192.168.1.122:2181,192.168.1.123:2181   集群模式
+    host: localhost:2181                     # 单机模式
+    connectionTimeoutMs: 30000               # 连接超时时间，单位毫秒
+    sessionTimeoutMs: 3000                   # 会话超时时间，单位毫秒
+    sleepMsBetweenRetry: 2000                # 重试间隔时间，单位毫秒
+    maxRetries: 3                            # 最大重试次数
+    namespace: curator-mybosspin             # 命名空间，类似于MQ中的Virtual Host
+
+
+# 暴露actuator的url
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'                         # 暴露所有的端点

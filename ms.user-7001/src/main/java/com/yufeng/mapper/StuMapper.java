@@ -1,6 +1,6 @@
 package com.yufeng.mapper;
 
-import com.yufeng.pojo.Stu;
+import com.yufeng.model.pojo.Stu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

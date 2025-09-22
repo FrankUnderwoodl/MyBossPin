@@ -1,0 +1,314 @@
+{
+  "2.2.2 admin端登录": [
+    {
+      "fileDescriptor": "$/model/src/main/java/com/yufeng/bo/AdminBo.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/model/src/main/java/com/yufeng/pojo/Admin.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/resources/mapper/AdminMapper.xml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/mapper/AdminMapper.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/service/impl/AdminServiceImpl.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/service/AdminService.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/controller/AdminController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.3.1 接口重试机制": [
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/test/java/com/yufeng/test/SpringRetryTest.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/retry/RetryComponent.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/utils/SMSUtilsRetry.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/Application.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.1.2 JWT生成(App端)": [],
+  "2.2.2 admin端更改密码(AR模式高内聚)": [
+    {
+      "fileDescriptor": "$/ms.user-7001/src/main/resources/mapper/AdminMapperAR.xml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.user-7001/src/main/java/com/yufeng/mapper/AdminMapperAR.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.user-7001/src/main/java/com/yufeng/controller/AdminInfoController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/model/src/main/java/com/yufeng/bo/ResetPwdBo.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/model/src/main/java/com/yufeng/pojo/ar/AdminAR.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.1.1 短信注册、登录(App端)": [],
+  "2.3.2 MQ基础学习": [
+    {
+      "fileDescriptor": "$/ms.service-resource-4001/src/main/java/com/yufeng/mq/MQSMSDeadConsumer.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.service-resource-4001/src/main/java/com/yufeng/mq/MQSMSConsumer.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/mq/MQSMSDeadConfig.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/mq/MQSMSConfig.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.2.1 IP限流": [
+    {
+      "fileDescriptor": "$/ms.gateway-8000/src/main/java/com/yufeng/filter/BlackIPLimitFilter.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.gateway-8000/src/main/java/com/yufeng/properties/IncludeUrlProperties.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.gateway-8000/src/main/resources/application.yml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.gateway-8000/src/main/java/com/yufeng/filter/IncludeUrlProperties.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "• ThreadLocal的使用": [
+    {
+      "fileDescriptor": "$/ms.user-7001/src/main/java/com/yufeng/controller/HelloController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/interceptor/JWTUserInterceptor.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.2.2 AOP计算service执行时间": [
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/config/ServiceLogAspect.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.2.1 扫码登录Saas端": [
+    {
+      "fileDescriptor": "$/ms.gateway-8000/src/main/resources/UrlPath.properties",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/controller/SaasPassportController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.1.2 JWT实现用户令牌的签发2": [
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/utils/JWTProperties.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/test/java/com/yufeng/test/JWTTest.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/utils/JWTUtil.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/resources/jwt.properties",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.1.3 Gateway认证token": [
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/controller/PassportController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/base/BaseInfoProperties.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.user-7001/src/main/resources/temp-bootstrap.yml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/resources/bootstrap.yml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ],
+  "2.1.2 JWT实现用户令牌的签发": [
+    {
+      "fileDescriptor": "$/model/src/main/java/com/yufeng/bo/RegisterLoginBo.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/config/InterceptorConfig.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/api/src/main/java/com/yufeng/interceptor/SMSInterceptor.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/exception/MyCustomException.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/exception/GraceExceptionHandler.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/common/src/main/java/com/yufeng/exception/GraceException.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/resources/mapper/UsersMapper.xml",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/mapper/UsersMapper.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/service/impl/UsersServiceImpl.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/service/UsersService.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    },
+    {
+      "fileDescriptor": "$/ms.auth-service-8111/src/main/java/com/yufeng/controller/AppPassportController.java",
+      "linenumber": -1,
+      "name": "",
+      "bookmarkType": "DEFAULT"
+    }
+  ]
+}

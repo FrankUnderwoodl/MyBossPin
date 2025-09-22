@@ -1,7 +1,6 @@
 package com.yufeng.service;
 
-import com.yufeng.pojo.Stu;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.yufeng.model.pojo.Stu;
 
 /**
  * <p>

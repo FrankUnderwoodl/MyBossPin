@@ -1,0 +1,20 @@
+server:
+#  servlet:
+#    context-path: /mybosspin
+  port: 5001
+  tomcat:
+    uri-encoding: utf-8
+#    max-swallow-size: -1   # Tomcat允许上传的最大文件大小，-1表示不限制
+
+spring:
+  application:
+    name: file-service
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 500KB        # 文件上传大小限制
+      max-request-size: 500KB     # 请求体大小限制
+
+
+
